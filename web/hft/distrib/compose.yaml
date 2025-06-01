@@ -1,0 +1,7 @@
+services:
+  app:
+    build: .
+    ports:
+      - "3333:8080"
+    environment:
+      - FLAG=grey{fake_flag}

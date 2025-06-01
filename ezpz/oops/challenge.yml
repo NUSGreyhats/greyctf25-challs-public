@@ -1,0 +1,17 @@
+attribution: jro
+author: jro
+category: Ezpz
+connection_info: http://challs.nusgreyhats.org:33001/
+description: Simple URL shortener. What could go wrong?
+extra:
+  decay: 150
+  initial: 1000
+  minimum: 100
+files:
+- dist-oops.zip
+flags:
+- grey{oops_wrong_variable}
+name: Oops
+state: visible
+type: dynamic
+value: 1000

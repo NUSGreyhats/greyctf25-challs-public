@@ -1,0 +1,7 @@
+services:
+  uwusignatures:
+    container_name: crypto-uwusignatures
+    privileged: false
+    build: ./source
+    ports:
+      - "33301:5399"

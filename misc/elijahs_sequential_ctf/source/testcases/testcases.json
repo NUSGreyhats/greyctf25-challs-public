@@ -1,0 +1,42 @@
+[
+    {
+        "input": "/testcases/1.in",
+        "output": "/testcases/1.out"
+    },
+    {
+        "input": "/testcases/2.in",
+        "output": "/testcases/2.out"
+    },
+        {
+        "input": "/testcases/3.in",
+        "output": "/testcases/3.out"
+    },
+    {
+        "input": "/testcases/4.in",
+        "output": "/testcases/4.out"
+    },
+        {
+        "input": "/testcases/5.in",
+        "output": "/testcases/5.out"
+    },
+    {
+        "input": "/testcases/6.in",
+        "output": "/testcases/6.out"
+    },
+        {
+        "input": "/testcases/7.in",
+        "output": "/testcases/7.out"
+    },
+    {
+        "input": "/testcases/8.in",
+        "output": "/testcases/8.out"
+    },
+        {
+        "input": "/testcases/9.in",
+        "output": "/testcases/9.out"
+    },
+    {
+        "input": "/testcases/10.in",
+        "output": "/testcases/10.out"
+    }
+]

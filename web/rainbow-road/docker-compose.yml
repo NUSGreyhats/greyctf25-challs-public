@@ -1,0 +1,21 @@
+services:
+  backend:
+    container_name: web-ranbowroad-backend
+    build: ./service/backend
+    expose:
+      - "4000"
+    networks:
+      - webnet
+
+  nginx:
+    container_name: web-rainbowroad-nginx
+    build: ./service/frontend
+    ports:
+      - "33204:80"
+    depends_on:
+      - backend
+    networks:
+      - webnet
+
+networks:
+  webnet:

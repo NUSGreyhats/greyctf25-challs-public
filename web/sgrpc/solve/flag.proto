@@ -1,0 +1,29 @@
+syntax = "proto2";
+
+package flag;
+
+import "google/protobuf/empty.proto";
+
+option go_package = "ctf.nusgreyhats.org/sgrpc/flag";
+
+message FlagRequest {
+  required string first_condition = 2 [default = "TraLaLeRo TraLaLa"];
+
+  required bytes second_condition = 3 [default = "cafebabe"];
+
+  required fixed64 last_condition = 1 [default = 3141592654];
+}
+
+message FlagReply {
+  required string flag = 1;
+}
+
+message HelloReply {
+  required string message = 1;
+}
+
+service Flag {
+  rpc GetFlag ( FlagRequest ) returns ( FlagReply );
+
+  rpc Hello ( google.protobuf.Empty ) returns ( HelloReply );
+}

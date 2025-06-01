@@ -1,0 +1,16 @@
+attribution: TheMythologist
+author: TheMythologist
+category: Forensics
+description: \<Insert Guessy forensics challenge description here>
+extra:
+  decay: 150
+  initial: 1000
+  minimum: 100
+files:
+- dist-notsus.exe.zip
+flags:
+- grey{this_program_cannot_be_run_in_dos_mode_hehe}
+name: Notsus.Exe
+state: visible
+type: dynamic
+value: 1000

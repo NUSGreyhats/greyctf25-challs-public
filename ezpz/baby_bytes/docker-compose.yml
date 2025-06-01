@@ -1,0 +1,7 @@
+services:
+  challenge:
+    container_name: ezpz-pwn-baby-bytes
+    build: service
+    privileged: true
+    ports:
+        - 33021:5000

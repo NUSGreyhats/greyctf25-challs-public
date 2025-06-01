@@ -1,0 +1,16 @@
+services:
+    challenge:
+      container_name: misc-elijah-sequential-ctf
+      build: ./source
+      ports:
+        - "33402:5000"
+      privileged: true  # ✅ Gives full kernel access (needed for cgroups, namespaces)
+      volumes:
+        - /sys/fs/cgroup:/sys/fs/cgroup:rw  # ✅ Ensure cgroup mount works
+      security_opt:
+        - apparmor:unconfined  # ✅ Allow fuse/mount/etc.
+      cap_add:
+        - SYS_ADMIN           # ✅ Required for cgroup/namespaces
+        - SYS_PTRACE
+        - NET_ADMIN
+      restart: unless-stopped

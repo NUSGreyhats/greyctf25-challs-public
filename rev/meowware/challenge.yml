@@ -1,0 +1,16 @@
+attribution: Elma
+author: Elma
+category: Rev
+description: I got infected. Help me find out what was stolen!
+extra:
+  decay: 150
+  initial: 1000
+  minimum: 100
+files:
+- dist-meowware.zip
+flags:
+- grey{upx_looking_real_cute_today!}
+name: Meowware
+state: visible
+type: dynamic
+value: 1000

@@ -1,0 +1,25 @@
+{
+  "name": "rainbow-road-backend",
+  "version": "1.0.0",
+  "description": "Backend for Rainbow Road game",
+  "scripts": {
+    "dev": "node src/backend.js",
+    "build": "minify src/backend.js > build/index.min.js"
+  },
+  "dependencies": {
+    "@types/express": "^5.0.2",
+    "@types/node": "^22.15.21",
+    "pngjs": "^7.0.0",
+    "socket.io": "^4.8.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  },
+  "optionalDependencies": {
+    "bufferutil": "^4.0.9",
+    "utf-8-validate": "^6.0.5"
+  },
+  "devDependencies": {
+    "@types/pngjs": "^6.0.5",
+    "minify": "^14.0.0"
+  }
+}

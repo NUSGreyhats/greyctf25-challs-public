@@ -1,0 +1,28 @@
+attribution: JuliaPoo
+author: JuliaPoo
+category: Crypto
+description: '```
+
+
+  I got a permute, I got a matrix,
+
+
+  <insert questionable sound>
+
+
+  permute matrix.
+
+
+  ```'
+extra:
+  decay: 150
+  initial: 1000
+  minimum: 100
+files:
+- dist-not-a-permutation-matrix.zip
+flags:
+- grey{Y0o0o0!_Gr4tZz_gr0uP_TH30rY_M4s73R!_JuliaLovesYouBye}
+name: Not A Permutation Matrix
+state: visible
+type: dynamic
+value: 1000

@@ -1,0 +1,29 @@
+attribution: elijah5399
+author: elijah5399
+category: Ezpz
+description: 'New to the world of brainrot? Not sure what names to pick from? We''ve
+  got you covered with a list of our faves:
+
+
+  - Tralalero Tralala
+
+
+  - Chef Crabracadabra
+
+
+  - Boneca Ambalabu
+
+
+  - Tung Tung Tung Tung Tung Tung Tung Tung Tung Sahur'
+extra:
+  decay: 150
+  initial: 1000
+  minimum: 100
+files:
+- dist-tung_tung_tung_sahur.zip
+flags:
+- grey{tUn9_t00nG_t0ONg_x7_th3n_s4hUr}
+name: Tung Tung Tung Sahur
+state: visible
+type: dynamic
+value: 1000

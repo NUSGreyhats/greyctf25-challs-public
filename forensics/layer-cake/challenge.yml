@@ -1,0 +1,17 @@
+attribution: lyrisng
+author: lyrisng
+category: Forensics
+description: Layer cake is so good. I have an mp3 file all about layer cake. Maybe
+  you can find the flag there?
+extra:
+  decay: 150
+  initial: 1000
+  minimum: 100
+files:
+- dist-layer-cake.zip
+flags:
+- grey{s0_f3w_lay3r5_w00p5}
+name: Layer Cake
+state: visible
+type: dynamic
+value: 1000

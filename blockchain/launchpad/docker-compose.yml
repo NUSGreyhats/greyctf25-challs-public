@@ -1,0 +1,8 @@
+version: "3.3"
+services:
+  sample:
+    container_name: blockchain-launchpad
+    build: ./service
+    ports:
+      - 33501:5000
+      - 33502:8545

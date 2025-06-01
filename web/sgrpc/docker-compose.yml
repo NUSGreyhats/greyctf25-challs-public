@@ -1,0 +1,8 @@
+services:
+  sgrpc_app:
+    container_name: web-sgrpc
+    build: ./service
+    ports:
+      - "33202:3335"
+    environment:
+      - FLAG=grey{r3fl3ct_th3_sch3m4}

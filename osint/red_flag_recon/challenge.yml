@@ -1,0 +1,21 @@
+attribution: k-hian
+author: k-hian
+category: Osint
+description: 'Since announcing GreyCTF, we''ve noticed persistent comments on the
+  GreyHats Instagram account from a user keen to create a challenge for us. But with
+  GreyCTF so close to our final exams, we haven''t had the bandwidth to properly vet
+  him. Help us check him out, make sure there are no red flags.
+
+
+  Note: There is only one flag in this challenge. If it fits the flag format `grey{...}`,
+  you''ve likely got it!'
+extra:
+  decay: 150
+  initial: 1000
+  minimum: 100
+flags:
+- grey{R4nD_n0_c4n7_h1d3_f14G}
+name: Red Flag Recon
+state: visible
+type: dynamic
+value: 1000

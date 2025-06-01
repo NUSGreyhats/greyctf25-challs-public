@@ -1,0 +1,7 @@
+services:
+  vexed:
+    container_name: pwn-vexed
+    build: ./service/
+    privileged: true
+    ports:
+      - 33101:5000

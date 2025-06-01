@@ -1,0 +1,17 @@
+attribution: NIL
+author: NIL
+category: Welcome
+description: "Welcome to GreyCTF Qualifiers 2025!\n\nThis is a simple sanity check\
+  \ to ensure everything is working: your setup, your submissions, and your sanity.\n\
+  \nIf you're seeing this challenge, congrats \u2014 you're all set to begin.\n\n\
+  Submit the flag to get started: `grey{w3lc0m3_2_gr3yctf_2025_fabb13becc1}`"
+extra:
+  decay: 150
+  initial: 1000
+  minimum: 100
+flags:
+- grey{w3lc0m3_2_gr3yctf_2025_fabb13becc1}
+name: Sanity Check
+state: visible
+type: dynamic
+value: 1000

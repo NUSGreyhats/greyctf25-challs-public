@@ -1,0 +1,17 @@
+attribution: QuanYang
+author: QuanYang
+category: Web
+connection_info: http://challs.nusgreyhats.org:33202
+description: Can't get hacked if they can't reach it.
+extra:
+  decay: 150
+  initial: 1000
+  minimum: 100
+files:
+- dist-sgrpc.zip
+flags:
+- grey{r3fl3ct_th3_sch3m4}
+name: Sgrpc
+state: visible
+type: dynamic
+value: 1000

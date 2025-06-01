@@ -1,0 +1,20 @@
+attribution: foobar
+author: foobar
+category: Osint
+description: "Warm up your OSINT skills with this challenge!\n\nYou are given an image\
+  \ of a sign in the park. \n\nSubmit the text on the sign as the flag in lowercase,\
+  \ converting all new lines and spaces to underscores.\n\nFor example, if the sign\
+  \ looks like this:\n\n```\n\nABC PARK\n\n123 Main St. \n\nSingapore\n\n```\n\nThen,\
+  \ submit the flag as `grey{abc_park_123_main_st_singapore}`."
+extra:
+  decay: 150
+  initial: 1000
+  minimum: 100
+files:
+- dist-a_walk_in_the_park.zip
+flags:
+- grey{interim_park_upper_serangoon_road}
+name: A Walk In The Park
+state: visible
+type: dynamic
+value: 1000

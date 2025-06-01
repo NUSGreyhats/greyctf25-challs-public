@@ -1,0 +1,6 @@
+services:
+  c2_app:
+    container_name: web-c2
+    build: ./service
+    ports:
+      - "33203:8080"

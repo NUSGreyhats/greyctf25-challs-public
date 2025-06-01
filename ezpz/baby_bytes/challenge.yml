@@ -1,0 +1,18 @@
+attribution: elijah5399
+author: elijah5399
+category: Ezpz
+connection_info: nc challs.nusgreyhats.org 33021
+description: Here's a beginner pwn challenge for all my baby pwners! Overwrite the
+  saved return address to the address of the win function, and enjoy your shell! :D
+extra:
+  decay: 150
+  initial: 1000
+  minimum: 100
+files:
+- dist-baby_bytes.zip
+flags:
+- grey{d1D_y0u_3njoY_youR_b4bY_B1tes?}
+name: Baby Bytes
+state: visible
+type: dynamic
+value: 1000

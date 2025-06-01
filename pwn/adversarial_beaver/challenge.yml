@@ -1,0 +1,20 @@
+attribution: Lord\_Idiot
+author: Lord\_Idiot
+category: Pwn
+connection_info: nc challs.nusgreyhats.org 33103
+description: 'It''s so amazing how they [solved BB-5](https://www.youtube.com/watch?v=rmx3FBPzDuk).
+
+
+  Let''s see how well each team can do on BB-100!'
+extra:
+  decay: 150
+  initial: 1000
+  minimum: 100
+files:
+- dist-adversarial_beaver.zip
+flags:
+- grey{congrats_on_solving_BB-100!}
+name: Adversarial Beaver
+state: visible
+type: dynamic
+value: 1000

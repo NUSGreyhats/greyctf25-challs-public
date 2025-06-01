@@ -1,0 +1,11 @@
+{
+    "js": {
+        "type": "terser",
+        "terser":{
+          "toplevel": true,
+          "compress":{
+            "drop_console": true
+          }
+        }
+    }
+}

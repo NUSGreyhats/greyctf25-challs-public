@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .btn-primary {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border: none;
+            border-radius: 25px;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .form-control {
+            border-radius: 25px;
+            border: 2px solid #e9ecef;
+        }
+        .form-control:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+        }
+        .url-item {
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        .url-item:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+        .copy-btn {
+            border-radius: 20px;
+        }
+        .stats-badge {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body p-5">
+                        <h1 class="text-center mb-4">
+                            <i class="fas fa-link text-primary"></i>
+                            URL Shortener
+                        </h1>
+                        
+                        {% if message %}
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <i class="fas fa-check-circle"></i> {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                        {% endif %}
+                        
+                        <form method="POST" action="{{ url_for('index') }}">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">
+                                    <i class="fas fa-globe"></i>
+                                </span>
+                                <input type="url" class="form-control" name="original_url" 
+                                       placeholder="Enter your long URL here..." required>
+                                <button class="btn btn-primary px-4" type="submit">
+                                    <i class="fas fa-compress-alt"></i> Shorten
+                                </button>
+                            </div>
+                        </form>
+                        
+                        {% if shortened_url %}
+                        <div class="alert alert-info">
+                            <h5><i class="fas fa-magic"></i> Your shortened URL:</h5>
+                            <div class="input-group">
+                                <input type="text" class="form-control" value="{{ shortened_url }}" 
+                                       id="shortenedUrl" readonly>
+                                <button class="btn btn-outline-primary copy-btn" type="button" 
+                                        onclick="copyToClipboard()">
+                                    <i class="fas fa-copy"></i> Copy
+                                </button>
+                            </div>
+                        </div>
+                        {% endif %}
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body p-5">
+                        <h1 class="text-center mb-4">
+                            <i class="fas fa-flag text-primary"></i>
+                            Report URL
+                        </h1>
+                        
+                        {% if report_message %}
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <i class="fas fa-check-circle"></i> {{ report_message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                        {% endif %}
+                        
+                        <form method="POST" action="{{ url_for('report') }}">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">
+                                    <i class="fas fa-globe"></i>
+                                </span>
+                                <input type="url" class="form-control" name="submit_id" 
+                                       placeholder="Enter the sus URL here..." required>
+                                <button class="btn btn-primary px-4" type="submit">
+                                    <i class="fas fa-hammer"></i> Report
+                                </button>
+                            </div>
+                        </form>
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function copyToClipboard(text) {
+            const textToCopy = text || document.getElementById('shortenedUrl').value;
+            navigator.clipboard.writeText(textToCopy).then(function() {
+                // Show success feedback
+                const btn = event.target.closest('button');
+                const originalHTML = btn.innerHTML;
+                btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                btn.classList.remove('btn-outline-primary');
+                btn.classList.add('btn-success');
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalHTML;
+                    btn.classList.remove('btn-success');
+                    btn.classList.add('btn-outline-primary');
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

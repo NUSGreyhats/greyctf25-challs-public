@@ -1,0 +1,16 @@
+services:
+  challenge:
+    container_name: web-oops-app
+    build:
+      context: app
+      dockerfile: Dockerfile
+    ports:
+      - "33001:5000"
+  admin:
+    container_name: web-oops-admin
+    build:
+      context: admin
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      - FLAG=grey{fake_flag}

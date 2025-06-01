@@ -1,0 +1,14 @@
+{
+  "name": "rainbow-maze-solve",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "solve": "node solve.js"
+  },
+  "dependencies": {
+    "pngjs": "^7.0.0",
+    "socket.io-client": "^4.8.1"
+  },
+  "devDependencies": {}
+}
