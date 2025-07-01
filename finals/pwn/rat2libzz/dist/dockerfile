@@ -1,0 +1,20 @@
+FROM ubuntu:22.04
+
+WORKDIR /app
+
+RUN apt-get update
+RUN apt-get upgrade -y
+RUN apt-get install socat qemu-user qemu-user-static binutils-aarch64-linux-gnu build-essential -y
+RUN useradd -m pwn
+
+COPY ./chall ./chall
+COPY ./lib ./lib
+COPY ./flag.txt ./flag.txt
+RUN ln -s /bin/bash /app/sh
+
+RUN chown -R root:root /app
+RUN chmod -R 555 /app
+RUN chmod 644 /app/flag.txt
+
+CMD ["socat", "TCP-LISTEN:5000,reuseaddr,fork", "EXEC:qemu-aarch64 -L . ./chall"]
+

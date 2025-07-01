@@ -1,0 +1,18 @@
+attribution: MiloTruck
+author: MiloTruck
+category: Blockchain
+connection_info: nc challs.nusgreyhats.org 34221
+description: I don't trust myself to hold my funds, so I wrote a contract to lock
+  them until next year. There's no way I lose them now, right...?
+extra:
+  decay: 150
+  initial: 1000
+  minimum: 100
+files:
+- dist-locker.zip
+flags:
+- grey{token_confusion_64c46db}
+name: Locker
+state: visible
+type: dynamic
+value: 1000

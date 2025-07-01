@@ -1,0 +1,17 @@
+attribution: "Eliyah Sundstr\xF6m"
+author: "Eliyah Sundstr\xF6m"
+category: Web
+connection_info: http://challs.nusgreyhats.org:33336
+description: Lost in translation? Or exactly where you're meant to be?
+extra:
+  decay: 150
+  initial: 1000
+  minimum: 100
+files:
+- dist-english-or-spanish.zip
+flags:
+- grey{why_ju5t_why_j5_1mp0rts}
+name: English Or Spanish
+state: visible
+type: dynamic
+value: 1000

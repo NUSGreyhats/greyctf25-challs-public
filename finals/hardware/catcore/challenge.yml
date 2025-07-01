@@ -1,0 +1,21 @@
+attribution: Hackin7
+author: Hackin7
+category: Hardware
+description: "Here at GreyCatTheFlag we have experience managing cats of different\
+  \ types. We have elmocat, we have jrocat, we have GPMGcat, and much more. \n\nYou\
+  \ can now leverage our year of experience with CatCore Hyper, the latest version\
+  \ of our Hardware Coprocessor, specifically designed for managing cats.\n\nWorried\
+  \ about security? No worries, being cat experts we have made sure that no one can\
+  \ anyhow mobilise your cats or show the white flag.\n\nOnly we can do it lmao."
+extra:
+  decay: 150
+  initial: 1000
+  minimum: 100
+files:
+- dist-catcore.zip
+flags:
+- grey{lmao_sandbox}
+name: Catcore
+state: visible
+type: dynamic
+value: 1000

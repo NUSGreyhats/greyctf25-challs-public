@@ -1,0 +1,21 @@
+attribution: jro
+author: jro
+category: Web
+connection_info: http://challs.nusgreyhats.org:33203
+description: 'Our forensics teams have discovered this Golang command and control
+  server on a compromised system.
+
+
+  Can you exfiltrate the flag?'
+extra:
+  decay: 150
+  initial: 1000
+  minimum: 100
+files:
+- dist-c2.zip
+flags:
+- grey{5n34ky_60ph3r}
+name: C2
+state: visible
+type: dynamic
+value: 1000

@@ -1,0 +1,16 @@
+attribution: Hackin7
+author: Hackin7
+category: Hardware
+description: It's security at the hardware level so it must be secure right?
+extra:
+  decay: 150
+  initial: 1000
+  minimum: 100
+files:
+- dist-secure_memory.zip
+flags:
+- grey{race_flag}
+name: Secure Memory
+state: visible
+type: dynamic
+value: 1000

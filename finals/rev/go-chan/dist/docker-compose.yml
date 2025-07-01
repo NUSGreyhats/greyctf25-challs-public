@@ -1,0 +1,9 @@
+services:
+  challenge7:
+    container_name: rev-go-chan
+    build: .
+    privileged: true
+    ports:
+      - 35124:5000
+    environment:
+      - FLAG=grey{fake_flag}

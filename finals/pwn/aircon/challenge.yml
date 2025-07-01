@@ -1,0 +1,22 @@
+attribution: goatmilkkk
+author: goatmilkkk
+category: Pwn
+connection_info: nc challs.nusgreyhats.org 35130
+description: 'Last Monday, I accidentally turned off all 10 air-conditioners at my
+  internship workplace without even realizing it. But what led to this moment? Solve
+  this challenge to find out :)
+
+
+  Goal is to set all air-conditioners to 25 degrees Celsius.'
+extra:
+  decay: 150
+  initial: 1000
+  minimum: 100
+files:
+- dist-aircon.zip
+flags:
+- grey{one_rem0te_controls_a11_the_air_conditioners!}
+name: Aircon
+state: visible
+type: dynamic
+value: 1000

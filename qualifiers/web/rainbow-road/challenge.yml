@@ -1,0 +1,18 @@
+attribution: jloh02
+author: jloh02
+category: Web
+connection_info: http://challs.nusgreyhats.org:33204
+description: Greycat's been feeling kind of blue lately, find the hidden message to
+  cheer him up!
+extra:
+  decay: 150
+  initial: 1000
+  minimum: 100
+files:
+- dist-rainbow-road.zip
+flags:
+- grey{iM_blu3_da_b4-dEe_daba-dii1!}
+name: Rainbow Road
+state: visible
+type: dynamic
+value: 1000

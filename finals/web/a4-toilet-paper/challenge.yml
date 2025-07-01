@@ -1,0 +1,18 @@
+attribution: Iscara
+author: Iscara
+category: Web
+connection_info: http://challs.nusgreyhats.org:33337
+description: I ran out of ideas for ctf challenges, so I just asked Claude to "vibe
+  code some shit". It took it too literally.
+extra:
+  decay: 150
+  initial: 1000
+  minimum: 100
+files:
+- dist-a4-toilet-paper.zip
+flags:
+- grey{lol}
+name: A4 Toilet Paper
+state: visible
+type: dynamic
+value: 1000

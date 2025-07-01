@@ -1,0 +1,15 @@
+attribution: pikapika
+author: pikapika
+category: Misc
+description: I wanted to play elden ring, but strange things are appearing at my laptop,
+  can you help me discover what is happening to it?
+extra:
+  decay: 150
+  initial: 1000
+  minimum: 100
+flags:
+- grey{Y0KOS0_KIR4_KIR4_DOKI_D0KI_M0CH1_MOCH1_PuY0_PuY0_WAKU_WAKU_W4SH0II_NA_W0NDER_ST4GE_YE}
+name: Elden Ring
+state: visible
+type: dynamic
+value: 1000

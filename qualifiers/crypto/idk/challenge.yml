@@ -1,0 +1,18 @@
+attribution: Iscara
+author: Iscara
+category: Crypto
+description: I've been really into zero knowledge proofs lately! I wrote a simple
+  program that can prove that I'm the only person who knows how to decrypt this message,
+  and because I'm so confident, I'll even give you some dumps of my proofs!
+extra:
+  decay: 150
+  initial: 1000
+  minimum: 100
+files:
+- dist-idk.zip
+flags:
+- grey{how_i_swear_you_shouldve_had_0_knowledge}
+name: Idk
+state: visible
+type: dynamic
+value: 1000

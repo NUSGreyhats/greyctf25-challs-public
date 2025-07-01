@@ -1,0 +1,18 @@
+attribution: k-hian
+author: k-hian
+category: Misc
+connection_info: nc challs.nusgreyhats.org 33401
+description: I made an authentication wrapper for services in python. Help me make
+  sure the admin password cannot be leaked.
+extra:
+  decay: 150
+  initial: 1000
+  minimum: 100
+files:
+- dist-authlab.zip
+flags:
+- grey{4_p1ck13d_p4ssw0rd_s0uNd5_n1C3}
+name: Authlab
+state: visible
+type: dynamic
+value: 1000

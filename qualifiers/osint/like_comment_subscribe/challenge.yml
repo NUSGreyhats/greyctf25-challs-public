@@ -1,0 +1,15 @@
+attribution: Eri
+author: Eri
+category: Osint
+description: nus.greyhats have decided that social media is a good place to share
+  the message!
+extra:
+  decay: 150
+  initial: 1000
+  minimum: 100
+flags:
+- grey{w1nD0ws_iS_nOt_sUppOrTeD}
+name: Like Comment Subscribe
+state: visible
+type: dynamic
+value: 1000

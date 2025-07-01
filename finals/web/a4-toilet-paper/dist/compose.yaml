@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  toilet-dispenser:
+    build: .
+    ports:
+      - "33337:33337"
+    # Environment variables (you can also use a .env file)
+    environment:
+      - NODE_ENV=development
+      - PORT=33337
+      - SESSION_SECRET=idk
+      - TOILET_FLAG=grey{fake_flag}
+    # Uncomment the line below to use .env file instead
+    # env_file: .env
+    volumes:
+      - .:/app
+      - /app/node_modules
+    restart: unless-stopped

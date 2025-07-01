@@ -1,0 +1,7 @@
+services:
+  challenge6:
+    container_name: pwn-sand-castles
+    build: ./service/
+    privileged: true
+    ports:
+        - 35131:5000

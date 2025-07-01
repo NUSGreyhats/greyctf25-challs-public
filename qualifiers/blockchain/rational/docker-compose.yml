@@ -1,0 +1,8 @@
+version: "3.3"
+services:
+  sample:
+    container_name: blockchain-rational
+    build: ./service
+    ports:
+      - 33503:5000
+      - 33504:8545

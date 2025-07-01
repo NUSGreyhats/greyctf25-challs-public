@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A4 Toilet Paper Dispenser Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>A4 Toilet Paper Dispenser Hub</h1>
+            <p>Premium Bathroom Experience Management</p>
+        </header>
+
+        <main>
+            <!-- Auth Section -->
+            <section id="authSection" class="auth-section">
+                <div class="auth-forms">
+                    <div class="form-container">
+                        <h2>Login to Dispenser</h2>
+                        <form id="loginForm">
+                            <div class="field">
+                                <label for="loginUsername">Toilet Technician ID</label>
+                                <input type="text" id="loginUsername" name="username" required>
+                            </div>
+                            <div class="field">
+                                <label for="loginPassword">Access Code</label>
+                                <input type="password" id="loginPassword" name="password" required>
+                            </div>
+                            <button type="submit">Access Dispenser</button>
+                        </form>
+                    </div>
+                    
+                    <div class="form-container">
+                        <h2>Register New Technician</h2>
+                        <form id="registerForm">
+                            <div class="field">
+                                <label for="regUsername">Toilet Technician ID</label>
+                                <input type="text" id="regUsername" name="username" required>
+                            </div>
+                            <div class="field">
+                                <label for="regEmail">Contact Email</label>
+                                <input type="email" id="regEmail" name="email" required>
+                            </div>
+                            <div class="field">
+                                <label for="regPassword">Access Code</label>
+                                <input type="password" id="regPassword" name="password" required>
+                            </div>
+                            <button type="submit">Register Technician</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Main App Section -->
+            <section id="appSection" class="app-section" style="display: none;">
+                <div class="user-bar">
+                    <span id="currentUser"></span>
+                    <button onclick="logout()">Exit Dispenser</button>
+                </div>
+
+                <section class="profile-section">
+                    <h2>Toilet Paper Dispenser Configuration</h2>
+                    <form id="profileForm">
+                        
+                        <div class="field">
+                            <label for="username">Toilet Technician ID</label>
+                            <input type="text" id="username" name="username" required>
+                        </div>
+
+                        <div class="field">
+                            <label for="email">Contact Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="field">
+                            <label for="toiletExperience">Toilet Experience Description</label>
+                            <textarea id="toiletExperience" name="toiletExperience" placeholder="Describe your finest bathroom moments..."></textarea>
+                        </div>
+
+                        <input type="hidden" name="dateUpdated" id="dateUpdated">
+
+                        <div class="field">
+                            <label for="smell">Current Bathroom Smell Level (1-10)</label>
+                            <input type="text" id="smell" name="smell" placeholder="Rate the aroma...">
+                        </div>
+
+                        <div class="field">
+                            <label for="temperature">Toilet Seat Temperature (°C)</label>
+                            <input type="text" id="temperature" name="temperature" placeholder="How warm is the throne?">
+                        </div>
+
+                        <button type="submit">Update Dispenser Settings</button>
+                    </form>
+                </section>
+
+                <section class="admin-section">
+                    <h2>Master Toilet Technician Panel</h2>
+                    <button onclick="checkAdmin()">Access Supreme Toilet Dashboard</button>
+                </section>
+            </section>
+
+            <div id="output"></div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

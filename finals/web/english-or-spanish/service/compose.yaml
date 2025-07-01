@@ -1,0 +1,5 @@
+services:
+  app_1:
+    build: .
+    ports:
+      - "33336:3000"

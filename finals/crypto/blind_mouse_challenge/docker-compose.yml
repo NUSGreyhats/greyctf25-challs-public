@@ -1,0 +1,7 @@
+services:
+  challenge3:
+    container_name: crypto-blind-mouse-challenge
+    build: ./service
+    ports:
+      - 33301:5000
+    privileged: true

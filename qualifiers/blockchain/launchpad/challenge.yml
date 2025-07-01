@@ -1,0 +1,18 @@
+attribution: MiloTruck
+author: MiloTruck
+category: Blockchain
+connection_info: nc challs.nusgreyhats.org 33501
+description: Since token launchpads are the new trend nowadays, we decided to write
+  our own! Will grey.fun be the next billion dollar protocol?
+extra:
+  decay: 150
+  initial: 1000
+  minimum: 100
+files:
+- dist-launchpad.zip
+flags:
+- grey{pump_not_fun_447149e3}
+name: Launchpad
+state: visible
+type: dynamic
+value: 1000

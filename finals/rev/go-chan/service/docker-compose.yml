@@ -1,0 +1,9 @@
+services:
+  challenge8:
+    container_name: rev-go-chan
+    build: .
+    privileged: true
+    ports:
+      - 35124:5000
+    environment:
+      - FLAG=grey{https://x.com/etum_dev/status/1469721147088547841#d6e8d8cef2cdc80df3ae8c89c5225f6e}

@@ -1,0 +1,5 @@
+services:
+  app2:
+    build: .
+    ports:
+      - "33334:3334"

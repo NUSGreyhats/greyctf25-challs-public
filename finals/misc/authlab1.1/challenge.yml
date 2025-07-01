@@ -1,0 +1,17 @@
+attribution: k-hian
+author: k-hian
+category: Misc
+connection_info: nc challs.nusgreyhats.org 33402
+description: What a pickle... I have disabled EasyCreds while I try to fix it...
+extra:
+  decay: 150
+  initial: 1000
+  minimum: 100
+files:
+- dist-authlab1.1.zip
+flags:
+- grey{4l1_aU7H_n0_p1Ay_M4k3_mE_4_d1ll_8oY}
+name: Authlab1.1
+state: visible
+type: dynamic
+value: 1000

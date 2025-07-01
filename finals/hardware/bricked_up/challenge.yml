@@ -1,0 +1,17 @@
+attribution: fieash
+author: fieash
+category: Hardware
+description: 'Hardware/Reverse
+
+
+  A classic game of brick!'
+extra:
+  decay: 150
+  initial: 1000
+  minimum: 100
+flags:
+- grey{c4ts_h4v3_30_1iv3s!}
+name: Bricked Up
+state: visible
+type: dynamic
+value: 1000

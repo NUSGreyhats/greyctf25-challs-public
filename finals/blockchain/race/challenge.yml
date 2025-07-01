@@ -1,0 +1,17 @@
+attribution: MiloTruck
+author: MiloTruck
+category: Blockchain
+connection_info: nc challs.nusgreyhats.org 34223
+description: Ready, set, go!
+extra:
+  decay: 150
+  initial: 1000
+  minimum: 100
+files:
+- dist-race.zip
+flags:
+- grey{cant_delete_mapping_c60126ce}
+name: Race
+state: visible
+type: dynamic
+value: 1000

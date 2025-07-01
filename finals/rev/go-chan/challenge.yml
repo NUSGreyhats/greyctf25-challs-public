@@ -1,0 +1,16 @@
+attribution: jro
+author: jro
+category: Rev
+description: Can you solve go-chan's puzzle?
+extra:
+  decay: 150
+  initial: 1000
+  minimum: 100
+files:
+- dist-go-chan.zip
+flags:
+- grey{https://x.com/etum_dev/status/1469721147088547841_d6e8d8cef2cdc80df3ae8c89c5225f6e}
+name: Go Chan
+state: visible
+type: dynamic
+value: 1000

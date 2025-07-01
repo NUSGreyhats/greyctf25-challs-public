@@ -1,0 +1,7 @@
+services:
+  challenge:
+    container_name: ezpz-reversing-101
+    build: src
+    privileged: true
+    ports:
+        - 33000:5000

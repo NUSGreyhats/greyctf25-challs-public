@@ -1,0 +1,7 @@
+services:
+  challenge1:
+    container_name: misc-authlab
+    build: ./service
+    ports:
+      - 33401:5000
+    privileged: true

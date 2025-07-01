@@ -1,0 +1,6 @@
+services:
+  challenge1:
+    container_name: aircon
+    build: .
+    ports:
+        - 35130:5000

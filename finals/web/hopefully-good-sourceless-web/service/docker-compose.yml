@@ -1,0 +1,9 @@
+services:
+  sourceless_frontend:
+    build:
+      context: frontend
+    ports:
+      - 33338:3000
+  sourceless_backend:
+    build:
+      context: backend

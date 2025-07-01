@@ -1,0 +1,18 @@
+attribution: enigmatrix
+author: enigmatrix
+category: Pwn
+connection_info: nc challs.nusgreyhats.org 33101
+description: this problem is vexing me, i require the assistance of a master of the
+  VEX prefix!
+extra:
+  decay: 150
+  initial: 1000
+  minimum: 100
+files:
+- dist-vexed.zip
+flags:
+- grey{vexed,VEXed_i_tell_you!}
+name: Vexed
+state: visible
+type: dynamic
+value: 1000

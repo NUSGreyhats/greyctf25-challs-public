@@ -1,0 +1,16 @@
+attribution: ariana
+author: ariana
+category: Crypto
+description: I added type-checking to xor, so my LFSR should be super secure now!
+extra:
+  decay: 150
+  initial: 1000
+  minimum: 100
+files:
+- dist-safe-xor.zip
+flags:
+- grey{!safe,_!xor,_wow..,..,.,}
+name: Safe Xor
+state: visible
+type: dynamic
+value: 1000

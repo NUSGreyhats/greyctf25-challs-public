@@ -1,0 +1,7 @@
+services:
+  sample:
+    container_name: blockchain_race
+    build: ./service/
+    ports:
+      - 34223:5000
+      - 34224:8545

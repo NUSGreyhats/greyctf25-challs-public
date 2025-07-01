@@ -1,0 +1,20 @@
+FROM ubuntu:24.04
+
+WORKDIR /app
+
+RUN apt-get update
+RUN apt-get upgrade -y
+RUN apt-get install socat -y
+RUN useradd -m pwn
+
+COPY ./toilet ./toilet
+COPY ./flag.txt ./flag.txt
+RUN ln -s /bin/bash /app/sh
+
+
+RUN chown -R root:root /app
+RUN chmod -R 555 /app
+RUN chmod 644 /app/flag.txt
+
+CMD bash -c "socat TCP-LISTEN:5000,reuseaddr,fork EXEC:./toilet"
+

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureCam Pro - Login</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="login-box">
+            <div class="camera-icon">
+                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/>
+                    <circle cx="12" cy="13" r="3"/>
+                </svg>
+            </div>
+            <h1>SecureCam Pro</h1>
+            <p class="subtitle">Network Camera Administration</p>
+            
+            <form action="/login" method="POST" class="login-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" placeholder="admin" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+		    <p style="font-size: 0.8em;">tom's password hint: "who do i love?"</p>
+                
+                <button type="submit" class="login-btn">Login</button>
+            </form>
+            
+            <div class="device-info">
+                <p><strong>Device:</strong> SecureCam Pro HD-2024</p>
+                <p><strong>Model:</strong> SC-P2024-WiFi</p>
+                <p><strong>Firmware:</strong> v2.1.4</p>
+            </div>
+            
+            <script>
+                // Show error message if present in URL
+                const urlParams = new URLSearchParams(window.location.search);
+                const error = urlParams.get('error');
+                if (error) {
+                    const errorDiv = document.createElement('div');
+                    errorDiv.className = 'error-message';
+                    errorDiv.textContent = error;
+                    document.querySelector('.login-form').prepend(errorDiv);
+                }
+            </script>
+        </div>
+    </div>
+</body>
+</html>

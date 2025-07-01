@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oops Blog</title>
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/static/css/all.min.css" rel="stylesheet" />
+    <link href="/static/css/main.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-body p-5" id="output_post">
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <script src="./static/js/bootstrap.bundle.min.js"></script>
+    <script src="./static/js/showdown.min.js"></script>
+    <script src="./static/js/safe.js"></script>
+    <script class="safe">
+        const converter = new showdown.Converter();
+        let body = atob('{{body}}').toLowerCase();
+        if(["safe", ">", "<", "=", "\"", "'", "`", "$", "{", "}", "!", "+", "set", "eval", "exec", "new", "const"].some(bad => body.includes(bad))){
+            body = "Malicious content detected!";
+        }
+        document.getElementById("output_post").innerHTML = converter.makeHtml(body);
+    </script>
+  </body>
+</html>

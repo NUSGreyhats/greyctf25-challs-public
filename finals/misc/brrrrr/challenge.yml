@@ -1,0 +1,16 @@
+attribution: jiefeng
+author: jiefeng
+category: Misc
+description: Audio file goes brrrrrrrrrrrrrrrrrrrrrrrrrrr
+extra:
+  decay: 150
+  initial: 1000
+  minimum: 100
+files:
+- dist-brrrrr.zip
+flags:
+- grey{ph4s3_sh1ft_k3y1ng_3498th45789tgh}
+name: Brrrrr
+state: visible
+type: dynamic
+value: 1000

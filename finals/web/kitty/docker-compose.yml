@@ -1,0 +1,6 @@
+services:
+  app:
+    container_name: web-kitty
+    build: ./service
+    ports:
+      - "33334:3334"

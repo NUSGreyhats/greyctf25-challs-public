@@ -1,0 +1,7 @@
+services:
+  challenge:
+    container_name: misc-countle-training-centre
+    build: ./service
+    ports:
+      - 33401:5000
+    privileged: true

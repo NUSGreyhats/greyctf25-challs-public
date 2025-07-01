@@ -1,0 +1,26 @@
+attribution: Hackin7
+author: Hackin7
+category: Hardware
+description: 'I want revenge.
+
+
+  Stop the backend and run this in the Thonny REPL to start the challenge.
+
+
+  ```python
+
+
+  from hornet_revenge import *
+
+
+  ```'
+extra:
+  decay: 150
+  initial: 1000
+  minimum: 100
+flags:
+- grey{for_last_greyctf_i_was_holding_back...but_this_greyctf_i'm_no_longer_sleep_deprived}
+name: Hornet Revenge
+state: visible
+type: dynamic
+value: 1000

@@ -1,0 +1,17 @@
+attribution: Elma
+author: Elma
+category: Pwn
+connection_info: nc challs.nusgreyhats.org 35128
+description: This is not a heap challenge! Trust me!
+extra:
+  decay: 150
+  initial: 1000
+  minimum: 100
+files:
+- dist-its-a-real-heap-challenge.zip
+flags:
+- grey{just_kidding_there_was_no_heap_involved_solved_the_heap_challenge_without_heap_feng_shui_and_pure_spraying}
+name: Its A Real Heap Challenge
+state: visible
+type: dynamic
+value: 1000

@@ -1,0 +1,17 @@
+attribution: Elma
+author: Elma
+category: Rev
+connection_info: nc challs.nusgreyhats.org 35123
+description: This is... puzzling...
+extra:
+  decay: 150
+  initial: 1000
+  minimum: 100
+files:
+- dist-puzzled.zip
+flags:
+- grey{rub1ks_cub3_puzzle_with_lots_of_obfffffffffffuscation}
+name: Puzzled
+state: visible
+type: dynamic
+value: 1000

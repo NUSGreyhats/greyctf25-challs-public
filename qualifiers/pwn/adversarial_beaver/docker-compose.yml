@@ -1,0 +1,7 @@
+services:
+  challenge:
+    container_name: pwn-beaver
+    build: service
+    privileged: true
+    ports:
+      - 33103:5000

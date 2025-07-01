@@ -1,0 +1,17 @@
+attribution: Elma
+author: Elma
+category: Pwn
+connection_info: nc challs.nusgreyhats.org 35131
+description: Can you break the sand castles?
+extra:
+  decay: 150
+  initial: 1000
+  minimum: 100
+files:
+- dist-sand-castles.zip
+flags:
+- grey{y0u_br0ke_th3_c4stl3s}
+name: Sand Castles
+state: visible
+type: dynamic
+value: 1000

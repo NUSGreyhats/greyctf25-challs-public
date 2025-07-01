@@ -1,0 +1,8 @@
+services:
+  hft_app:
+    container_name: web-hft
+    build: ./service
+    ports:
+      - "33201:8080"
+    environment:
+      - FLAG=grey{race_condition_is_not_stonks}

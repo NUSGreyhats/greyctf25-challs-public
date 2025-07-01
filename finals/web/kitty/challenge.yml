@@ -1,0 +1,18 @@
+attribution: jro
+author: jro
+category: Web
+connection_info: http://challs.nusgreyhats.org:33334
+description: This sandbox is so secure, I'll let you perform any file operation you
+  want!
+extra:
+  decay: 150
+  initial: 1000
+  minimum: 100
+files:
+- dist-kitty.zip
+flags:
+- grey{6l0b5_4r3_7r1cky}
+name: Kitty
+state: visible
+type: dynamic
+value: 1000

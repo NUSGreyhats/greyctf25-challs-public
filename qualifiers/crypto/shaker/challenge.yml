@@ -1,0 +1,17 @@
+attribution: hadnot
+author: hadnot
+category: Crypto
+connection_info: nc challs.nusgreyhats.org 33302
+description: You found a shaker. Can you get the flag out?
+extra:
+  decay: 150
+  initial: 1000
+  minimum: 100
+files:
+- dist-shaker.zip
+flags:
+- grey{kinda_long_flag_but_whatever_65k2n427c61ww064ac3vhzigae2qg}
+name: Shaker
+state: visible
+type: dynamic
+value: 1000

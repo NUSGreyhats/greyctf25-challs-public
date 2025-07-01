@@ -1,0 +1,21 @@
+attribution: jro
+author: jro
+category: Rev
+description: "I installed a \"leftrightpad\" Python package, but it seems to have\
+  \ been infected with malware. \n\nCan you recover the original flag.txt?\n\nPlease\
+  \ note:\n\n- This might be helpful: `sudo docker run --rm -it  --name serpentine\
+  \ -v $(pwd):/workspace python:3.13.0-bookworm /bin/bash`\n\n- Don't forget to wrap\
+  \ the recovered flag in grey{}\n\n- **Any submission that contains \"fake_flag\"\
+  \ will result in a 100 point penalty.**"
+extra:
+  decay: 150
+  initial: 1000
+  minimum: 100
+files:
+- dist-serpentine.zip
+flags:
+- grey{m3553d_up_py7h0n}
+name: Serpentine
+state: visible
+type: dynamic
+value: 1000

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <title>URL Not Found</title>
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+        </head>
+        <body class="bg-light">
+            <div class="container mt-5">
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <h1 class="text-danger">404</h1>
+                                <h3>URL Not Found</h3>
+                                <p>The shortened URL you're looking for doesn't exist.</p>
+                                <a href="{{ url_for('index') }}" class="btn btn-primary">
+                                    Go Back Home
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </body>
+        </html>

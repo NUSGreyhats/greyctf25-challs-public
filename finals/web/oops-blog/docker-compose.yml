@@ -1,0 +1,17 @@
+services:
+  challenge:
+    container_name: web-oops-app
+    build:
+      context: service/app
+      dockerfile: Dockerfile
+    ports:
+      - "33335:5000"
+  admin:
+    container_name: web-oops-admin
+    build:
+      context: service/admin
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      - FLAG=grey{html_encoding_bypasses_filters_DYNAMIC}
+      - MASTER_SECRET=3ab5adb45b965d771cb64d9b7ee6d99e

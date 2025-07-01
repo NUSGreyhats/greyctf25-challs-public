@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>$FLAG Exchange</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+      .card {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+      }
+      .navbar-brand {
+        font-weight: bold;
+      }
+      .price-display {
+        font-size: 2rem;
+        font-weight: bold;
+      }
+      .price-change {
+        font-size: 1.2rem;
+      }
+      .positive {
+        color: #28a745;
+      }
+      .negative {
+        color: #dc3545;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="#">$FLAG Exchange</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#" id="account-id-display"></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container my-4">
+      <!-- Trading Platform (initially hidden) -->
+      <div id="trading-platform">
+        <div class="row mb-4">
+          <div class="col-md-8">
+            <div class="card">
+              <div
+                class="card-header bg-dark text-white d-flex justify-content-between align-items-center"
+              >
+                <h4 class="mb-0">$FLAG Price</h4>
+                <div>
+                  <span
+                    class="badge bg-light text-dark"
+                    id="current-time"
+                  ></span>
+                </div>
+              </div>
+              <div class="card-body">
+                <div
+                  class="d-flex justify-content-between align-items-center mb-3"
+                >
+                  <div>
+                    <span class="price-display" id="current-price">$0.00</span>
+                    <span class="price-change ms-2" id="price-change"
+                      >0.00%</span
+                    >
+                  </div>
+                </div>
+                <div style="height: 600px">
+                  <canvas id="stockChart"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card">
+              <div class="card-header bg-success text-white">
+                <h4 class="mb-0" id="acc-info-header">Account Information</h4>
+              </div>
+              <div class="card-body">
+                <h5 class="card-text">
+                  $FLAG: <span id="account-flag">0</span>
+                </h5>
+                <p class="card-text">
+                  Cash: $<span id="account-balance">0</span>
+                </p>
+                <p class="card-text" id="account-message"></p>
+                <p class="card-text">
+                  Note: a $100.00 transaction fee will be imposed.
+                </p>
+                <div class="input-group mb-3">
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="trade-amount"
+                    placeholder="Amount"
+                  />
+
+                  <button class="btn btn-success" id="buy-btn">Buy</button>
+                  <button class="btn btn-danger" id="sell-btn">Sell</button>
+                </div>
+                <button class="btn btn-danger" id="challenge-btn">
+                  Start challenge
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Global variables
+      let accountId = localStorage.getItem("account");
+      let priceHistory = [];
+      let timeLabels = [];
+      let chart;
+      let lastPrice = 0;
+
+      if (!accountId) {
+        createAccount().then(() => {
+          localStorage.setItem("account", accountId);
+        });
+      }
+
+      // Initialize Chart
+      function initializeChart() {
+        const ctx = document.getElementById("stockChart").getContext("2d");
+        chart = new Chart(ctx, {
+          type: "line",
+          data: {
+            labels: timeLabels,
+            datasets: [
+              {
+                label: "$FLAG",
+                data: priceHistory,
+                borderColor: "rgb(75, 192, 192)",
+                tension: 0.1,
+                fill: false,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: {
+                display: false,
+              },
+            },
+            scales: {
+              y: {
+                min: 0,
+                max: 1_000_000,
+              },
+            },
+            animation: {
+              duration: 0,
+            },
+            maintainAspectRatio: false,
+          },
+        });
+      }
+
+      // Format timestamp
+      function formatTime(date) {
+        return date.toLocaleTimeString([], {
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+        });
+      }
+
+      // Update current time
+      function updateCurrentTime() {
+        const now = new Date();
+        document.getElementById("current-time").textContent = formatTime(now);
+      }
+
+      function numberWithCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      }
+      // Query stock price
+      async function queryStockPrice() {
+        try {
+          const response = await fetch("/query");
+          const data = await response.json();
+
+          // Update price display
+          const price = data.price / 100; // Assuming price is in cents
+          document.getElementById(
+            "current-price"
+          ).textContent = `$${numberWithCommas(price.toFixed(2))}`;
+
+          // Calculate and show price change
+          if (lastPrice > 0) {
+            const priceChange = ((price - lastPrice) / lastPrice) * 100;
+            const priceChangeElement = document.getElementById("price-change");
+            priceChangeElement.textContent = `${
+              priceChange >= 0 ? "+" : ""
+            }${priceChange.toFixed(2)}%`;
+            priceChangeElement.className = `price-change ms-2 ${
+              priceChange >= 0 ? "positive" : "negative"
+            }`;
+          }
+          lastPrice = price;
+
+          // Create time labels if they don't exist
+          if (timeLabels.length === 0 && data.priceHistory) {
+            const now = new Date();
+            // Create labels for the past 60 seconds
+            for (let i = data.priceHistory.length - 1; i >= 0; i--) {
+              const secondsAgo = data.priceHistory.length - 1 - i;
+              const timePoint = new Date(now.getTime() - secondsAgo * 1000);
+              timeLabels.unshift(formatTime(timePoint));
+            }
+          } else if (data.priceHistory) {
+            // Add new time label and remove oldest if we have more than 60
+            const now = new Date();
+            timeLabels.push(formatTime(now));
+            if (timeLabels.length > 30) {
+              timeLabels.shift();
+            }
+          }
+
+          // Update chart with price history from the API
+          if (data.priceHistory) {
+            // Convert prices to dollars
+            const priceHistoryInDollars = data.priceHistory.map((p) => p / 100);
+            chart.data.datasets[0].data = priceHistoryInDollars;
+            chart.data.labels = timeLabels;
+            chart.update();
+          }
+          // Query account info if logged in
+          if (accountId) {
+            queryAccount();
+          }
+        } catch (error) {
+          console.error("Error querying stock price:", error);
+        }
+      }
+
+      // Create new account
+      async function createAccount() {
+        try {
+          const response = await fetch("/newAccount", {
+            method: "POST",
+          });
+          accountId = (await response.text()).trim();
+
+          // Update UI with account ID
+          document.getElementById(
+            "account-id-display"
+          ).textContent = `Account: ${accountId}`;
+
+          // Query account info
+          queryAccount();
+        } catch (error) {
+          console.error("Error creating account:", error);
+          alert("Failed to create account. Please try again.");
+        }
+      }
+
+      async function startChallenge() {
+        try {
+          const challengeTicks = 30;
+          const response = await fetch("/challenge", {
+            method: "POST",
+          });
+          accountId = (await response.text()).trim();
+          localStorage.setItem("account", accountId);
+          document.getElementById("challenge-btn").style = "display: none";
+          document.getElementById("account-message").innerHTML =
+            "Challenge started";
+          let i = 0;
+          document.getElementById(
+            "acc-info-header"
+          ).textContent = `Challenge time remaining: ${Math.floor((challengeTicks - i)/2)}s`;
+          challengeTimer = setInterval(() => {
+            i += 1;
+            document.getElementById(
+              "acc-info-header"
+            ).textContent = `Challenge time remaining: ${Math.floor((challengeTicks - i)/2)}s`;
+            if (i >= challengeTicks) {
+              clearInterval(challengeTimer);
+            }
+          }, 500);
+        } catch (error) {
+          console.error("Error creating account:", error);
+          alert("Failed to create account. Please try again.");
+        }
+      }
+
+      // Query account information
+      async function queryAccount() {
+        if (!accountId) return;
+
+        try {
+          const response = await fetch(`/${accountId}`);
+          const data = await response.json();
+
+          // Update UI with account info
+          document.getElementById("account-balance").textContent =
+            numberWithCommas((data.cash / 100).toFixed(2));
+          document.getElementById("account-flag").textContent =
+            numberWithCommas(data.flag);
+          document.getElementById(
+            "account-id-display"
+          ).textContent = `Account: ${accountId}`;
+
+          if (!data.message) return;
+          document.getElementById("account-message").innerHTML =
+            data.message.replaceAll("\n", "<br>");
+          if (data.message.includes("Better luck next time")) {
+            document.getElementById("acc-info-header").textContent =
+              "You lost :(";
+            clearInterval(challengeTimer);
+            localStorage.clear();
+          }
+          if (data.message.includes("Error")) {
+            document.getElementById("acc-info-header").textContent =
+              "Oops an error occurred!";
+            clearInterval(challengeTimer);
+            localStorage.clear();
+          }
+        } catch (error) {
+          console.error("Error querying account:", error);
+          localStorage.clear();
+          location.reload();
+        }
+      }
+
+      // Execute trade
+      async function executeTrade(operation) {
+        const amountElement = document.getElementById("trade-amount");
+        const amount = parseInt(amountElement.value);
+
+        if (!amount) {
+          alert("Please enter a valid amount");
+          return;
+        }
+
+        try {
+          const response = await fetch(`/${accountId}/trade`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              op: operation,
+              amt: amount || 0,
+            }),
+          });
+
+          const data = await response.text();
+
+          // Update account info
+          queryAccount();
+
+          // Clear input field
+          amountElement.value = "";
+          document.getElementById("account-message").textContent = data;
+        } catch (error) {
+          console.error("Error executing trade:", error);
+          alert("Trade failed. Please try again.");
+        }
+      }
+
+      const freq = 500;
+
+      // Event listeners
+      document
+        .getElementById("buy-btn")
+        .addEventListener("click", () => executeTrade(0));
+      document
+        .getElementById("sell-btn")
+        .addEventListener("click", () => executeTrade(1));
+      document
+        .getElementById("challenge-btn")
+        .addEventListener("click", () => startChallenge());
+
+      // Initialize application
+      document.addEventListener("DOMContentLoaded", () => {
+        // Initialize chart
+        initializeChart();
+
+        // Start updating current time
+        updateCurrentTime();
+        setInterval(updateCurrentTime, freq);
+
+        // Start querying stock price
+        queryStockPrice();
+        setInterval(queryStockPrice, freq);
+      });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

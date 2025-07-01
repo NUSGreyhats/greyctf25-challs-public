@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@opengovsg/starter-kitty-fs": "^1.2.3",
+    "express": "^5.1.0"
+  }
+}

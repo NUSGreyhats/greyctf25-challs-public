@@ -1,0 +1,7 @@
+# DiamondNet external API configuration
+
+# Port for the embedded HTTP server
+port: 8081
+
+# A shared secret clients must include in their requests
+api-key: "change_this_to_a_secure_key"

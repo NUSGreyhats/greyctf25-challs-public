@@ -1,0 +1,7 @@
+services:
+  puzzled:
+    container_name: rev-puzzled
+    build: ./service
+    read_only: true
+    ports:
+      - 35123:5000

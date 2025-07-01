@@ -1,0 +1,24 @@
+attribution: elijah5399
+author: elijah5399
+category: Crypto
+connection_info: nc challs.nusgreyhats.org 33301
+description: 'As an uwu girl, I decided to make this digital signature scheme to share
+  my signatures with everyone!
+
+
+  I''ll only show you half of my signature though, because I''m shy...
+
+
+  Surely, no one would steal from a cutie like myself... right?'
+extra:
+  decay: 150
+  initial: 1000
+  minimum: 100
+files:
+- dist-uwusignatures.zip
+flags:
+- grey{h_h_H_h0wd_y0u_Do_tH4T_OMO}
+name: Uwusignatures
+state: visible
+type: dynamic
+value: 1000

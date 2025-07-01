@@ -1,0 +1,6 @@
+services:
+  challenge:
+    container_name: crypto-shaker
+    build: service
+    ports:
+      - 33302:5000

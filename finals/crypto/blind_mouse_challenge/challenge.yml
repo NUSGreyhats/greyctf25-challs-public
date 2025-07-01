@@ -1,0 +1,15 @@
+attribution: k-hian
+author: k-hian
+category: Crypto
+connection_info: nc challs.nusgreyhats.org 33301
+description: Run around like a blind mouse... can you decrypt the flag?
+extra:
+  decay: 150
+  initial: 1000
+  minimum: 100
+flags:
+- grey{pR3t7y_5urE_c4n_8rUT3_f0rC3}
+name: Blind Mouse Challenge
+state: visible
+type: dynamic
+value: 1000

@@ -1,0 +1,17 @@
+attribution: hadnot
+author: hadnot
+category: Crypto
+connection_info: nc challs.nusgreyhats.org 33302
+description: kurukuru kururin (i ran out of name ideas)
+extra:
+  decay: 150
+  initial: 1000
+  minimum: 100
+files:
+- dist-stirrer.zip
+flags:
+- grey{obligatory_dont_roll_your_own_crypto_reference_i_hope_you_didnt_just_gpt_the_soln_else_ill_be_sad_:(}
+name: Stirrer
+state: visible
+type: dynamic
+value: 1000

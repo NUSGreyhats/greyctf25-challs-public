@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureCam Pro - Dashboard</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="dashboard">
+        <header class="dashboard-header">
+            <div class="header-left">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/>
+                    <circle cx="12" cy="13" r="3"/>
+                </svg>
+                <h1>SecureCam Pro Dashboard</h1>
+            </div>
+            <div class="header-right">
+                <span class="status-indicator online">ONLINE</span>
+                <a href="/logout" class="logout-btn">Logout</a>
+            </div>
+        </header>
+
+        <div class="dashboard-content">
+            <div class="card">
+                <h2>Camera Status</h2>
+                <div class="status-grid">
+                    <div class="status-item">
+                        <span class="label">Recording:</span>
+                        <span class="value active">Active</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="label">Motion Detection:</span>
+                        <span class="value enabled">Enabled</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="label">Night Vision:</span>
+                        <span class="value auto">Auto</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="label">Storage:</span>
+                        <span class="value">73% Full</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Live Stream</h2>
+                <div class="video-placeholder">
+                    <div class="camera-feed">
+                        <div class="feed-overlay">
+                            <div class="timestamp">2025-06-28 14:23:15</div>
+                            <div class="camera-label">Front Door Camera</div>
+                        </div>
+                        <div class="no-signal">
+                            <p>📹 LIVE FEED</p>
+                            <p>1920x1080 @ 30fps</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>System Information</h2>
+                <div class="system-info">
+                    <p><strong>Device ID:</strong> SC-001-A7F3B2</p>
+                    <p><strong>IP Address:</strong> 192.168.1.100</p>
+                    <p><strong>MAC Address:</strong> 00:1A:2B:3C:4D:5E</p>
+                    <p><strong>Uptime:</strong> 15 days, 7 hours</p>
+                    <p><strong>Temperature:</strong> 42°C</p>
+                </div>
+            </div>
+
+            <div class="card flag-card">
+                <h2>🏆 System Debug</h2>
+                <p>Congratulations! You've successfully accessed the camera dashboard.</p>
+                <button id="showFlag" class="flag-btn">Retrieve Debug Token</button>
+                <div id="flagResult" class="flag-result"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('showFlag').addEventListener('click', async () => {
+            try {
+                const response = await fetch('/flag');
+                const data = await response.json();
+                document.getElementById('flagResult').innerHTML = `
+                    <div class="flag-display">
+                        <strong>Debug Token:</strong><br>
+                        <code>${data.flag}</code>
+                    </div>
+                `;
+            } catch (error) {
+                document.getElementById('flagResult').innerHTML = 
+                    '<div class="error">Failed to retrieve debug token</div>';
+            }
+        });
+
+        // Update timestamp every second
+        setInterval(() => {
+            const now = new Date();
+            const timestamp = now.toISOString().slice(0, 19).replace('T', ' ');
+            document.querySelector('.timestamp').textContent = timestamp;
+        }, 1000);
+    </script>
+</body>
+</html>

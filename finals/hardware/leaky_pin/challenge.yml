@@ -1,0 +1,26 @@
+attribution: itsme-zeix
+author: itsme-zeix
+category: Hardware
+description: 'I wonder if there''s something special in the secret pin....
+
+
+  Stop the backend and run this in the Thonny REPL to start the challenge.
+
+
+  ```python
+
+
+  from leaky_gpio25 import *
+
+
+  ```'
+extra:
+  decay: 150
+  initial: 1000
+  minimum: 100
+flags:
+- grey{N4n053c0nd_Pr3c1510n!}
+name: Leaky Pin
+state: visible
+type: dynamic
+value: 1000

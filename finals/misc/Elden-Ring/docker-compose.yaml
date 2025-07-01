@@ -1,0 +1,8 @@
+services:
+  misc-lpmc:
+    container_name: misc-sadge
+    build: ./service
+    # privileged: true
+    read_only: true
+    ports:
+      - 35000:35000

@@ -1,0 +1,7 @@
+services:
+  challenge4:
+    container_name: pwn-the-toilet
+    build: .
+    privileged: true
+    ports:
+        - 5000:5000

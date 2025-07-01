@@ -1,0 +1,17 @@
+attribution: jovantanyk
+author: jovantanyk
+category: Forensics
+description: One of our employees was browsing the web when he suddenly lost connection!
+  Can you help him figure out why?
+extra:
+  decay: 150
+  initial: 1000
+  minimum: 100
+files:
+- dist-connection-issues.zip
+flags:
+- grey{d1d_1_jus7_ge7_p01son3d}
+name: Connection Issues
+state: visible
+type: dynamic
+value: 1000

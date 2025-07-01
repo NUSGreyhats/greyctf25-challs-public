@@ -1,0 +1,17 @@
+attribution: Hackin7
+author: Hackin7
+category: Hardware
+description: We have some Secure Armed Forces (SAF) on our badge. They are well trained
+  to follow instructions and patterns.
+extra:
+  decay: 150
+  initial: 1000
+  minimum: 100
+files:
+- dist-shooting_flags.zip
+flags:
+- grey{eh_dont_only_wayang}
+name: Shooting Flags
+state: visible
+type: dynamic
+value: 1000

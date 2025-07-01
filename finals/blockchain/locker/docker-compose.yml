@@ -1,0 +1,7 @@
+services:
+  sample:
+    container_name: blockahin_locker
+    build: ./service
+    ports:
+      - 34221:5000
+      - 34222:8545

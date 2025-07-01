@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oops Blog</title>
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/static/css/all.min.css" rel="stylesheet" />
+    <link href="/static/css/main.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-body p-5">
+              <h1 class="text-center mb-4">
+                <i class="fas fa-pen-nib text-primary"></i>
+                Create a Post
+              </h1>
+              {% if message %}
+              <div
+                class="alert alert-success alert-dismissible fade show"
+                role="alert"
+              >
+                <i class="fas fa-check-circle"></i> {{ message }}
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="alert"
+                ></button>
+              </div>
+              {% endif %}
+
+              <form method="POST" action="{{ url_for('index') }}">
+                <div class="mb-3">
+                  <textarea
+                    class="form-control"
+                    id="body"
+                    name="body"
+                    rows="4"
+                    placeholder="Write your post here..."
+                    required
+                  ></textarea>
+                </div>
+                <button class="btn btn-primary px-4" type="submit">
+                  <i class="fas fa-pen"></i> Create Post
+                </button>
+              </form>
+
+              {% if post_url %}
+              <div class="alert alert-info mt-2">
+                <span class="fw-bold"
+                ><i class="fas fa-link"></i> View your post:</span
+                >
+                <a href="{{ post_url }}" class="ms-2" target="_blank"
+                >{{ post_url }}</a
+                >
+              </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container mt-5">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-body p-5">
+              <h1 class="text-center mb-4">
+                <i class="fas fa-flag text-primary"></i>
+                Report Post
+              </h1>
+
+              {% if report_message %}
+              <div
+                class="alert alert-success alert-dismissible fade show"
+                role="alert"
+              >
+                <i class="fas fa-check-circle"></i> {{ report_message }}
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="alert"
+                ></button>
+              </div>
+              {% endif %}
+
+              <form method="POST" action="{{ url_for('report') }}">
+                <div class="input-group mb-3">
+                  <span class="input-group-text">
+                    <i class="fas fa-globe"></i>
+                  </span>
+                  <input
+                    type="url"
+                    class="form-control"
+                    name="submit_id"
+                    placeholder="Enter the sus URL here..."
+                    required
+                  />
+                  <button class="btn btn-primary px-4" type="submit">
+                    <i class="fas fa-hammer"></i> Report
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./static/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

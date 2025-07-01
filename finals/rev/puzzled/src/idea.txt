@@ -1,0 +1,12 @@
+just some simple obfuscated rubiks cube game
+
+control flow obfuscation
+
+maybe after evey insn, we can do 
+
+popf
+XXX
+pushf
+call $+5
+add [rsp], ???
+ret

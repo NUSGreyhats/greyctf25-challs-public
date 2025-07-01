@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  toilet-dispenser:
+    build: ./service
+    container_name: web-a4-toilet-paper
+    ports:
+      - "33337:33337"
+    # Environment variables (you can also use a .env file)
+    environment:
+      - NODE_ENV=development
+      - PORT=33337
+      - SESSION_SECRET=super-secret-toilet-paper-session-key-2024
+      - TOILET_FLAG=grey{lol}
+    # Uncomment the line below to use .env file instead
+    # env_file: .env
+    volumes:
+      - .:/app
+      - /app/node_modules
+    restart: unless-stopped

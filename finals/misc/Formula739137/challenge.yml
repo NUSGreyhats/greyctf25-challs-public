@@ -1,0 +1,16 @@
+attribution: sunshine
+author: sunshine
+category: Misc
+description: Toto invited me to The Paddock to watch the Singapore GP! That's amazing!
+extra:
+  decay: 150
+  initial: 1000
+  minimum: 100
+files:
+- dist-Formula739137.zip
+flags:
+- grey{m3rced3s_1s_my_f4v_team!}
+name: Formula739137
+state: visible
+type: dynamic
+value: 1000

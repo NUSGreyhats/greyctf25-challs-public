@@ -1,0 +1,11 @@
+services:
+  misc-lpmc:
+    container_name: misc-lpmc
+    build: ./service
+    # privileged: true
+    read_only: true
+    ports:
+      - 35565:25565
+      - 38081:8081
+    volumes:
+      - ./lpmc-server:/app/lpmc-server:rw

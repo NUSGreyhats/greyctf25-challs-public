@@ -1,0 +1,18 @@
+attribution: MiloTruck
+author: MiloTruck
+category: Blockchain
+connection_info: nc challs.nusgreyhats.org 33503
+description: We re-implemented ERC4626 to perform calculations in rational numbers.
+  Rounding issues, begone!
+extra:
+  decay: 150
+  initial: 1000
+  minimum: 100
+files:
+- dist-rational.zip
+flags:
+- grey{rational_math_fixes_rounding_67c1b078}
+name: Rational
+state: visible
+type: dynamic
+value: 1000

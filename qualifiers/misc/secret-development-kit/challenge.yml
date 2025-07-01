@@ -1,0 +1,17 @@
+attribution: Hackin7
+author: Hackin7
+category: Misc
+description: You have just stolen top secret production files of a secret board. Hmm,
+  I wonder what it could be?
+extra:
+  decay: 150
+  initial: 1000
+  minimum: 100
+files:
+- dist-secret-development-kit.zip
+flags:
+- grey{see_greym3ch4/4rMy_@_f1n4l5_25}
+name: Secret Development Kit
+state: visible
+type: dynamic
+value: 1000

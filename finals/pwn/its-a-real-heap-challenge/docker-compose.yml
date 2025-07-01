@@ -1,0 +1,8 @@
+services:
+  pwn-real-heap:
+    container_name: pwn-real-heap-challenge
+    build: ./service
+    # privileged: true
+    read_only: true
+    ports:
+      - 35128:5000
